@@ -1,38 +1,197 @@
-.App {
+/* Global Variables */
+:root{
+
+    /* Background Button Color */
+    --ToggleDarkButton:linear-gradient(#378fe6, #3eda82);
+    --ToggleLightButton: hsl(230, 22%, 74%);
+
+    /* Primary Colors */
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear-gradient(#fdc468, #df4996);
+    --YouTube: hsl(348, 97%, 39%);
+
+     /* Colors Dark Theme */
+    --VeryDarkBlueBackground: hsl(230, 17%, 14%);
+    --VeryDarkBlueTopBGPattern: hsl(232, 19%, 15%);
+    --DarkDesaturatedBlueCardBG: hsl(228, 28%, 20%);
+    --DesaturatedBlueText: hsl(228, 34%, 66%);
+    --WhiteText: hsl(0, 0%, 100%);
+
+    /* Colors Light Theme */
+--WhiteBackground: hsl(0, 0%, 100%);
+--VeryPaleBlueTopBGPattern: hsl(225, 100%, 98%);
+--LightGrayishBlueCardBG: hsl(227, 47%, 96%);
+--DarkGrayishBlueText: hsl(228, 12%, 44%);
+--VeryDarkBlueText: hsl(230, 17%, 14%);
+
+    /* Font Sizes */
+    --fontSize14: 0.875em;
+    --fontSize16 : 1em;
+    --fontSize18: 1.125em;
+    --fontSize20: 1.250em;
+    --fontSize24: 1.500em;
+    --fontSize32 : 2em;
+    --fontSize36 : 2.250em;
+    --fontSize40 : 2.5em;
+    --fontSize44 : 2.75em;
+    --fontSize48 : 3em;
+    --fontSize52 : 3.25em;
+
+}
+/* Layout */
+/* Components */
+
+.overview-card{
+  width: 17.5em;
+  height: 17.5em;
+  background: #fff;
+  box-shadow: 2px 1px 8px rgba(216, 216, 216, 0.425);
+  border-radius: 5px;
+  margin-top: 2em;
+  margin-left: 2em;
+}
+
+.overview-today{
+  width: 75%;
+  background: #fff;
+  box-shadow: 2px 1px 8px rgba(216, 216, 216, 0.425);
+  border-radius: 5px;
+  margin-top: 2em;
+  margin-left: 2em;
+}
+
+.inner-text{
   text-align: center;
+  padding-top: 2em;
+  line-height: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.switch1 {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .switch1 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
-  to {
-    transform: rotate(360deg);
+  label{
+    float: right;
+    margin: -2.5em 2.8em 0 0;
   }
+
+  .slider1 {
+    position: absolute;
+    cursor: pointer;
+  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--ToggleLightButton);
+    border-radius: 50px;
+  }
+  
+  .slider1::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    bottom: 4px;
+    left: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  input:checked + .slider1::before {
+    transform: translateX(26px);
+  }
+  
+  input:checked + .slider1 {
+    background-image: var(--ToggleDarkButton);
+  }
+
+  /* Typography */
+
+  header>h1{
+    padding: 1em 0 0 1.5em; 
+    font-size: var(--fontSize24);
+    color: var(--DarkDesaturatedBlueCardBG);
+  }
+
+  header>span{
+    padding: 1em 0 1em 2em; 
+    display: block;
+    font-size: var(--fontSize16);
+    color: var(--DarkGrayishBlueText);
+
+  }
+
+  .inner-text>h1{
+    font-size: var(--fontSize52);
+    padding-top: 0.8em;
+  }
+
+  .inner-text>h2{
+    font-size: var(--fontSize14);
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--ToggleLightButton);
+  }
+
+  .date{
+    text-align: center;
+    margin-left: 0.2em;
+    line-height: 8;
+    color: var(--LimeGreen);
+  }
+
+  .inner-text>span{
+    padding-left: 0.75em;
+  }
+
+  .today-view{
+    padding: 1.5em 0 0 1.5em;
+    margin:2em 1em 0 0;
+    display: block;
+  }
+
+  .img-site{
+    float: right;
+    margin:-1.1em 1.5em 0 0;
+  }
+
+  .today-count{
+    margin: 1em 0 0 1em;
+    padding-bottom: 1em;
+    font-size: var(--fontSize24);
+    
+    
+  }
+
+
+.today-percent{
+  margin: -3em 0em 0 12.5em;
+  position: absolute;
+  
+} 
+
+.today-arrow{
+  margin:-2.5em 0 0 11.5em;
+  position: absolute;
+}
+
+main>h1{
+  padding: 1em 0 0 1.5em; 
+  font-size: var(--fontSize24);
+  color: var(--DesaturatedBlueText);
 }
